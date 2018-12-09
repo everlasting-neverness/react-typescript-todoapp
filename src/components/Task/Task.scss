@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+.tdl__task {
+  background-color: $background-lightgrey;
+  border: none;
+  border-radius: 3px;
+  margin: 0.5rem 2rem;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .task__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+
+    .task__value {
+      font-size: 1.2rem;
+    }
+
+    .task__value--completed {
+      text-decoration: line-through;
+    }
+
+    .task__btn {
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.4rem;
+      margin: 0 0.3rem;
+    }
+
+    .form__btn:focus {
+      outline: 2px solid #dedad1;
+    }
+  }
+
+
+}
