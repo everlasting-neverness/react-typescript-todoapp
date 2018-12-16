@@ -8,18 +8,29 @@ export interface ITasks {
   tasks: Array<ITask>;
   toggleCompleteTask(id: number): void;
   handleDeleteTask(id: number): void;
+  handleTaskTextChange(
+    id: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void;
+  toggleTaskChange(id: number): void;
 }
 
 export interface ITask {
   id: number;
   value: string;
   completed: boolean;
+  editMode: boolean;
 }
 
 export interface ITaskRender {
   task: ITask;
   toggleCompleteTask(id: number): void;
   handleDeleteTask(id: number): void;
+  handleTaskTextChange(
+    id: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void;
+  toggleTaskChange(id: number): void;
 }
 
 export interface IForm {

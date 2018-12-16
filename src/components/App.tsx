@@ -48,11 +48,36 @@ export class App extends React.Component<{}, IState> {
           {
             value: this.state.currentTask,
             id: this._timeInMilliseconds(),
-            completed: false
+            completed: false,
+            editMode: false
           }
         ]
       });
     }
+  };
+
+  public handleTaskTextChange = (
+    id: number,
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const value = e.target.value;
+    const tasks: Array<ITask> = [...this.state.tasks];
+    tasks.forEach((task: ITask) => {
+      if (task.id === id) {
+        task.value = value;
+      }
+    });
+    this.setState({ tasks });
+  };
+
+  public toggleTaskChange = (id: number): void => {
+    const tasks: Array<ITask> = [...this.state.tasks];
+    tasks.forEach((task: ITask) => {
+      if (task.id === id) {
+        task.editMode = !task.editMode;
+      }
+    });
+    this.setState({ tasks });
   };
 
   public handleUserInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -98,6 +123,8 @@ export class App extends React.Component<{}, IState> {
           <Tasks
             tasks={this.state.tasks}
             toggleCompleteTask={this.toggleCompleteTask}
+            toggleTaskChange={this.toggleTaskChange}
+            handleTaskTextChange={this.handleTaskTextChange}
             handleDeleteTask={this.handleDeleteTask}
           />
         ) : null}

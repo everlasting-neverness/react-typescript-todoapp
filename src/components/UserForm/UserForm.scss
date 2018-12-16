@@ -21,6 +21,7 @@
     }
 
     .form__input {
+      min-width: 30rem;
       padding: 0.4rem;
       color: $grey;
       font-size: 1rem;
@@ -31,18 +32,24 @@
       box-shadow: $grey-shadow;
     }
 
-    .form__input:focus {
-      outline: 2px solid $dark-grey;
-    }
-
     .form__btn {
       font-size: 1rem;
       font-weight: bold;
       padding: 0.4rem;
     }
+  }
+}
 
-    .form__btn:focus {
-      outline: 2px solid #dedad1;
+@media screen and (max-width: 585px) {
+  .tdl__form-section {
+   
+    .tdl__form {
+
+      .form__input {
+        min-width: 0;
+      }
+
     }
+  
   }
 }

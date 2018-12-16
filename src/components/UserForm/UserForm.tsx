@@ -13,7 +13,7 @@ const UserForm = (props: IForm): JSX.Element => (
       <input
         id="todo-input"
         type="text"
-        className="form__input"
+        className="form__input input"
         placeholder={props.showError ? "Task text can not be empty" : ""}
         value={props.inputValue}
         onChange={props.handleUserInput}

@@ -4,7 +4,7 @@
   background-color: $background-lightgrey;
   border: none;
   border-radius: 3px;
-  margin: 0.5rem 2rem;
+  margin: 0.5rem 4rem;
   color: $white;
   display: flex;
   align-items: center;
@@ -16,8 +16,31 @@
     justify-content: space-between;
     padding: 0.5rem;
 
+    .task__btn-icon {
+      margin-right: 1rem;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: $white;
+    }
+
+    .task__btn-icon:focus {
+      outline: 0;
+      box-shadow: 0 0 0 2px #fce5b0;
+    }
+
+    .task__icon {
+      font-size: 1.5rem;
+      color: $white;
+    }
+
+    .task__icon--completed {
+      color: $grey;
+    }
+
     .task__value {
       font-size: 1.2rem;
+      word-break: break-word;
     }
 
     .task__value--completed {
@@ -37,4 +60,11 @@
   }
 
 
+}
+
+@media screen and (max-width: 670px) {
+  .tdl__task {
+    flex-direction: column;
+    margin: 0.5rem auto;
+  }
 }

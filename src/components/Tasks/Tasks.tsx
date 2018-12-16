@@ -14,6 +14,8 @@ class Tasks extends React.Component<ITasks, {}> {
             task={task}
             toggleCompleteTask={this.props.toggleCompleteTask}
             handleDeleteTask={this.props.handleDeleteTask}
+            handleTaskTextChange={this.props.handleTaskTextChange}
+            toggleTaskChange={this.props.toggleTaskChange}
           />
         );
       }
