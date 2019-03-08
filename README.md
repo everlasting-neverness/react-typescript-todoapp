@@ -15,7 +15,7 @@ On branch 'app-with-nodejs-mongoDB-backend' there is a version with backend.
 ```
 
 You'll also need a mongoDB database for backend version.
-When you'll have one, create `keys.js` inside `config` folder and add there next code:
+When you'll have one, create `config` folder in the root folder, then create `keys.js` inside `config` and add to that `.js` file next code:
 ```
 module.exports = {
     mongoURI: 'your-mongoDB-connection-URI'
