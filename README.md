@@ -26,7 +26,7 @@ module.exports = {
 
 ```
 1) npm install
-2) npm rub client-install
+2) npm run client-install
 ```
 
 #### Run locally in DEV mode
