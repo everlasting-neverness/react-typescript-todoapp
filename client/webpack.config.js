@@ -31,7 +31,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html"
     }),
-    // new ExtractTextPlugin("style.css")
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
@@ -39,5 +38,12 @@ module.exports = {
   ],
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
-  }
+  },
+  devServer: {
+    port: 8080,
+    contentBase: path.resolve(__dirname, 'client'),
+    proxy: {
+      '/': 'http://localhost:5074'
+    }
+  },
 };

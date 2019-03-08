@@ -1,36 +1,44 @@
+export interface IProps {}
+
 export interface IState {
   currentTask: string;
   tasks: Array<ITask>;
   showValidationError: boolean;
+  isLoading: boolean;
+  isEditing: boolean;
+  currentEditingItem: string;
 }
 
 export interface ITasks {
   tasks: Array<ITask>;
-  toggleCompleteTask(id: number): void;
-  handleDeleteTask(id: number): void;
+  isEditing: boolean;
+  currentEditingItem: string;
+  toggleCompleteTask(_id: string): void;
+  handleDeleteTask(_id: string): void;
   handleTaskTextChange(
-    id: number,
+    _id: string,
     e: React.ChangeEvent<HTMLInputElement>
   ): void;
-  toggleTaskChange(id: number): void;
+  toggleTaskChange(_id: string): void;
 }
 
 export interface ITask {
-  id: number;
+  _id: string;
   value: string;
   completed: boolean;
-  editMode: boolean;
 }
 
 export interface ITaskRender {
   task: ITask;
-  toggleCompleteTask(id: number): void;
-  handleDeleteTask(id: number): void;
+  isEditing: boolean;
+  currentEditingItem: string;
+  toggleCompleteTask(_id: string): void;
+  handleDeleteTask(_id: string): void;
   handleTaskTextChange(
-    id: number,
+    _id: string,
     e: React.ChangeEvent<HTMLInputElement>
   ): void;
-  toggleTaskChange(id: number): void;
+  toggleTaskChange(_id: string): void;
 }
 
 export interface IForm {

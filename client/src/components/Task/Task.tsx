@@ -4,11 +4,11 @@ import "./Task.scss";
 import { ITaskRender } from "../interfaces";
 
 const Task = (props: ITaskRender): JSX.Element => (
-  <div className="tdl__task" key={props.task.id}>
+  <div className="tdl__task" key={props.task._id}>
     <div className="task__container">
       <button
         className="task__btn-icon btn"
-        onClick={props.toggleCompleteTask.bind(this, props.task.id)}
+        onClick={props.toggleCompleteTask.bind(null, props.task._id)}
       >
         {props.task.completed ? (
           <i className="task__icon task__icon--completed fas fa-check" />
@@ -16,7 +16,7 @@ const Task = (props: ITaskRender): JSX.Element => (
             <i className="task__icon fas fa-circle" />
           )}
       </button>
-      {!props.task.editMode ? (
+      {props.currentEditingItem !== props.task._id ? (
         <span
           className={
             "task__value" +
@@ -30,20 +30,20 @@ const Task = (props: ITaskRender): JSX.Element => (
             type="text"
             className="task__value task_value--editable input"
             value={props.task.value}
-            onChange={props.handleTaskTextChange.bind(this, props.task.id)}
+            onChange={props.handleTaskTextChange.bind(this, props.task._id)}
           />
         )}
     </div>
     <div className="task__container">
       <button
         className="task__btn btn"
-        onClick={props.toggleTaskChange.bind(this, props.task.id)}
+        onClick={props.toggleTaskChange.bind(null, props.task._id)}
       >
-        {props.task.editMode ? "Save Changes" : "Change"}
+        {props.isEditing && props.currentEditingItem === props.task._id ? "Save Changes" : "Change"}
       </button>
       <button
         className="task__btn btn"
-        onClick={props.handleDeleteTask.bind(this, props.task.id)}
+        onClick={props.handleDeleteTask.bind(null, props.task._id)}
       >
         Delete
       </button>

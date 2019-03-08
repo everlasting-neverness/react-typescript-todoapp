@@ -12,6 +12,8 @@ class Tasks extends React.Component<ITasks, {}> {
         return (
           <Task
             task={task}
+            isEditing={this.props.isEditing}
+            currentEditingItem={this.props.currentEditingItem}
             toggleCompleteTask={this.props.toggleCompleteTask}
             handleDeleteTask={this.props.handleDeleteTask}
             handleTaskTextChange={this.props.handleTaskTextChange}
